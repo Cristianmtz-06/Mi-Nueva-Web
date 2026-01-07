@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">FORZAZA 🌿</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../views/catalog.html">Catálogo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../views/carrito.html">Carrito</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Pedidos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Documentacion
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../views/insfraestructura.html">Infrestuctura</a></li>
+              <li><a class="dropdown-item" href="../views/disponibilidad.html">Disponibilidad</a></li>
+              <li><a class="dropdown-item" href="../views/commit.html">Estado</a></li>
+              <li><a class="dropdown-item" href="../views/tecnologia.html">Tecnologia</a></li>
+              <li><a class="dropdown-item" href="../views/Simulacion.html">Simulacion</a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <style>
+  .admin-panel {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .admin-panel h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .admin-panel label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  .admin-panel input,
+  .admin-panel select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .admin-panel button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #0078D4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .admin-panel button:hover {
+    background-color: #005ea2;
+  }
+
+  .tracking-box {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .tracking-step {
+    margin: 10px 0;
+    padding: 10px;
+    border-left: 6px solid #ccc;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .active-step {
+    border-left-color: #0078D4;
+    background-color: #e6f0ff;
+    color: #0078D4;
+  }
+</style>
+
+<div class="admin-panel">
+  <h2>Actualizar estado del pedido</h2>
+  <label for="order-id">ID del pedido:</label>
+  <input type="text" id="order-id" placeholder="Ej. 12345" />
+
+  <label for="order-status">Nuevo estado:</label>
+  <select id="order-status">
+    <option value="Pedido recibido">Pedido recibido</option>
+    <option value="En preparación">En preparación</option>
+    <option value="En camino">En camino</option>
+    <option value="Entregado">Entregado</option>
+  </select>
+
+  <button onclick="updateOrderStatus()">Actualizar</button>
+
+  <div id="tracking-box" class="tracking-box" style="display:none;">
+    <h3>Seguimiento del paquete</h3>
+    <div id="step1" class="tracking-step">Pedido recibido</div>
+    <div id="step2" class="tracking-step">En preparación</div>
+    <div id="step3" class="tracking-step">En camino</div>
+    <div id="step4" class="tracking-step">Entregado</div>
+  </div>
+</div>
+
+<script>
+  function updateOrderStatus() {
+    const orderId = document.getElementById("order-id").value;
+    const newStatus = document.getElementById("order-status").value;
+
+    if (!orderId) {
+      alert("Por favor ingresa el ID del pedido.");
+      return;
+    }
+
+    alert(`El estado del pedido ${orderId} ha sido actualizado a: ${newStatus}`);
+    console.log(`Pedido ${orderId} actualizado a: ${newStatus}`);
+
+    // Mostrar cuadro de seguimiento
+    document.getElementById("tracking-box").style.display = "block";
+
+    // Resetear pasos
+    const steps = ["step1", "step2", "step3", "step4"];
+    steps.forEach(id => {
+      document.getElementById(id).classList.remove("active-step");
+    });
+
+    // Activar paso correspondiente
+    if (newStatus === "Pedido recibido") document.getElementById("step1").classList.add("active-step");
+    if (newStatus === "En preparación") document.getElementById("step2").classList.add("active-step");
+    if (newStatus === "En camino") document.getElementById("step3").classList.add("active-step");
+    if (newStatus === "Entregado") document.getElementById("step4").classList.add("active-step");
+  }
+</script>
+

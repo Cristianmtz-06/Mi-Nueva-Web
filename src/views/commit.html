@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado del Sistema - SneakerHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg-color: #1E1E1E;
+            --border-color: #2D2D2D;
+            --text-primary: #EAEAEA;
+            --text-secondary: #A0A0A0;
+            --color-operational: #28a745;
+            --color-operational-bg: rgba(40, 167, 69, 0.1);
+            --color-degraded: #ffc107;
+            --color-outage: #dc3545;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .status-container {
+            background-color: var(--card-bg-color);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .status-header {
+            margin-bottom: 32px;
+        }
+
+        .status-header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .status-header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        #last-updated {
+            font-weight: 600;
+        }
+        
+        .overall-status {
+            background-color: var(--color-operational-bg);
+            border: 1px solid var(--color-operational);
+            color: var(--color-operational);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .status-indicator-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--color-operational);
+            border-radius: 50%;
+            margin-right: 12px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .kpi-card {
+            background-color: var(--bg-color);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .kpi-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .kpi-header .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            color: var(--text-secondary);
+        }
+
+        .kpi-label {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .kpi-value .unit {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-left: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+            .status-container {
+                padding: 20px;
+            }
+            .kpi-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">FORZAZA 🌿</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../views/catalog.html">Catálogo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../views/carrito.html">Carrito</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Pedidos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Documentacion
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../views/insfraestructura.html">Infrestuctura</a></li>
+              <li><a class="dropdown-item" href="../views/disponibilidad.html">Disponibilidad</a></li>
+              <li><a class="dropdown-item" href="../views/commit.html">Estado</a></li>
+              <li><a class="dropdown-item" href="../views/tecnologia.html">Tecnologia</a></li>
+              <li><a class="dropdown-item" href="../views/Simulacion.html">Simulacion</a></li>
+              <li><a class="dropdown-item" href="../views/Simulacion_admin.html">Simulacion  del administrador</a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="status-container mt-5">
+        <header class="status-header">
+            <h1>Estado del Sistema</h1>
+            <p>Última actualización: <span id="last-updated">--:--:--</span></p>
+        </header>
+
+        <div class="overall-status">
+            <div class="status-indicator-dot"></div>
+            Todos los sistemas están operando normalmente.
+        </div>
+        
+        <main class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span class="kpi-label">Uptime (24h)</span>
+                </div>
+                <div class="kpi-value">99.98<span class="unit">%</span></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span class="kpi-label">Latencia Global</span>
+                </div>
+                <div class="kpi-value">120<span class="unit">ms</span></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 17.25v-.228a4.5 4.5 0 00-.12-1.03l-2.268-9.64a3.375 3.375 0 00-3.285-2.602H7.923a3.375 3.375 0 00-3.285 2.602l-2.268 9.64a4.5 4.5 0 00-.12 1.03v.228m19.5 0a3 3 0 01-3 3H5.25a3 3 0 01-3-3m19.5 0a3 3 0 00-3-3H5.25a3 3 0 00-3 3m16.5 0h.008v.008h-.008v-.008zm-3 0h.008v.008h-.008v-.008z" /></svg>
+                    <span class="kpi-label">TTFB del Servidor</span>
+                </div>
+                <div class="kpi-value">85<span class="unit">ms</span></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.76 9.76 0 01-2.53-0.481M21 12a9 9 0 00-9-9c-4.556 0-8.25 4.03-8.25 9M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" /></svg>
+                    <span class="kpi-label">Soporte WhatsApp</span>
+                </div>
+                <div class="kpi-value">~5<span class="unit">min</span></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function updateTime() {
+            const timeEl = document.getElementById('last-updated');
+            const now = new Date();
+            timeEl.textContent = now.toLocaleTimeString('es-MX');
+        }
+        setInterval(updateTime, 1000);
+        updateTime(); // Initial call
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            scroll-behavior: smooth;
+            
+        }
+
+
+
+        main {
+            flex: 1;
+        }
+
+        hr {
+            
+            height: 1px;
+            background: #000000;
+            margin: 20px 0;
+        }
+
+        .navbar {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .card-carrusel {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+
+        .btn-primary {
+            background-color: #212529;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #343a40;
+        }
+
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 24px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        footer {
+            background-color: #212529;
+            color: white;
+            padding: 30px 0;
+            margin-top: 2%;
+        }
+
+        footer a {
+            color: #25D366;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #000;
+  border-radius: 50%;
+  padding: 10px;
+  
+}
+
+.foto{
+    background-image: url('https://th.bing.com/th/id/OIP.O7b8179iJO9s-uamQFQs7gHaE7?w=279&h=186&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3');
+    background-position:center;
+    color: white;
+    width: 100%;
+    height: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tecnologia{
+   background: #020024;
+background: linear-gradient(177deg,rgba(2, 0, 36, 1) 0%, rgba(9, 32, 61, 1) 65%);
+padding: 20px;
+color: #f3f3f3;
+}
+
+.header{
+    
+    padding: 5px;    
+}
+
+.panel{
+    background: #12202c;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.panel-a{
+    background: #1e2933;
+   
+    color: #f3f3f3;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.panel-c{
+    background: #1b2e3f;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cta{
+      display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:12px; text-decoration:none;
+      border:1px solid #1f2937; background:linear-gradient(180deg, rgba(34,211,238,.12), rgba(34,211,238,0));
+      color:var(--text); transition:transform .06s ease, box-shadow .2s ease;
+    }
+    
+    .cta:hover{transform:translateY(-1px); box-shadow:0 8px 20px rgba(34,211,238,.15)}
+
+.comprar{
+    background-color: #0e5725;
+    color: white;
+    height: 60px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    font-size: 18px;  
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    
+}
+
+.comprar:hover {
+    background-color: #031a0a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "T001",
+    "nombre": "Nike Air Force 1 Low",
+    "precio": 2599,
+    "categoria": "Tenis",
+    "imagen": "../assets/img/1.avif",
+    "descripcion": "Tenis clásicos con amortiguación Nike Air y parte superior de piel duradera."
+  },
+  {
+    "id": "T002",
+    "nombre": "Nike Jordan 1'07 Mid",
+    "precio": 2199,
+    "categoria": "Tenis",
+    "imagen": "../assets/img/2.avif",
+    "descripcion": "Diseño cómodo con amortiguación Air Max para sesiones prolongadas."
+  },
+  {
+    "id": "T003",
+    "nombre": "Nike SB Dunk Low Pro x Limosine",
+    "precio": 1899,
+    "categoria": "Tenis",
+    "imagen": "../assets/img/3.avif",
+    "descripcion": "Tenis duraderos con soporte lateral para principiantes y avanzados."
+  },
+  {
+    "id": "T004",
+    "nombre": "Nike Air Max Correlate",
+    "precio": 2999,
+    "categoria": "Tenis",
+    "imagen": "../assets/img/4.avif",
+    "descripcion": "Tecnología Zoom Air para máxima respuesta en cada movimiento."
+  },
+  {
+    "id": "T005",
+    "nombre": "Nike Air Low Black and Flint Gray",
+    "precio": 3199,
+    "categoria": "Tenis",
+    "imagen": "../assets/img/5.avif",
+    "descripcion": "Tenis de alto rendimiento con suela resistente para arcilla."
+  },
+  {
+    "id": "T006",
+    "nombre": "Nike Jordan 1 High Pro Green",
+    "precio": 3399,
+    "categoria": "Tenis",
+    "imagen": "../assets/img/6.avif",
+    "descripcion": "Diseño robusto con amortiguación completa para jugadores agresivos."
+  },
+  {
+    "id": "T007",
+    "nombre": "Nike SB Dunk Low pro Persian Violet",
+    "precio": 1799,
+    "categoria": "Tenis",
+    "imagen": "../assets/img/7.avif",
+    "descripcion": "Estilo clásico con suela de goma para uso casual y deportivo."
+  },
+  {
+    "id": "T008",
+    "nombre": "ACG Rufus Dark smoke Gray and Light",
+    "precio": 1599,
+    "categoria": "Tenis",
+    "imagen": "../assets/img/8.avif",
+    "descripcion": "Tenis de lona con diseño retro y plantilla acolchada."
+  }
+]

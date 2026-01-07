@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+      <nav class="navbar fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">FORZAZA 🌿</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../views/catalog.html">Catálogo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../views/carrito.html">Carrito</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Pedidos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Documentacion
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../views/insfraestructura.html">Infrestuctura</a></li>
+              <li><a class="dropdown-item" href="../views/disponibilidad.html">Disponibilidad</a></li>
+              <li><a class="dropdown-item" href="../views/commit.html">Estado</a></li>
+              <li><a class="dropdown-item" href="../views/tecnologia.html">Tecnologia</a></li>
+              <li><a class="dropdown-item" href="../views/Simulacion.html">Simulacion</a>
+              <li><a class="dropdown-item" href="../views/Simulacion_admin.html">Simulacion  del administrador</a> 
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+     <!--Tecnologia a usar-->
+  <div class="tecnologia my-5 pt-4 pb-4" id="tecnologia">
+    <div class="text-center header">
+      <h4 class="fw-bold mb-4">Tecnología Propuesta (Simulación) - Proyecto Negocios Electronicos 1</h4>
+    </div>
+    <div class="container my-5">
+      <h5>¿Cómo sería el panel de administración “si fuera real”?</h5>
+      <p style="font-size: 16px; color: #738594">
+        En este curso, todo el desarrollo se simulará únicamente en el front-end, utilizando tecnologías como HTML, CSS
+        y JavaScript, sin conexión a un back-end real ni bases de datos. El enfoque estará en la estructura visual, la
+        interacción del usuario y la presentación profesional del sitio.
+      </p>
+      <div class="d-flex gap-3">
+        <div class="container my-5">
+          <div class="container mt-2 panel">
+            <h5 style="font-weight: 600;">Simulación Admin — WordPress + WooCommerce</h5>
+            <p style="font-size: 16px; color: #738594">
+              Panel clásico con múltiples opciones para personalizar y administrar la tienda.
+            </p>
+
+            <!-- Panel de funciones administrativas -->
+            <div class="container mt-3 panel-a p-3 rounded shadow-sm">
+              <h4 style="font-weight: 600;">Funciones principales del administrador</h4>
+              <ul class="list mt-3" style="font-size: 15px; color: #cacaca;">
+                <li>📦 <strong>Productos: nombre, descripción, precio, inventario, categoría </strong></li>
+                <li>🖼️ <strong>Galería: subir imágenes destacadas y de galería </strong></li>
+                <li>🧩 <strong>Plugins: SEO, pasarelas de pago, seguridad </strong></li>
+                <li>🎨 <strong>>Diseño: personalización de temas y widgets </strong></li>
+                <li>📊 <strong>>Pedidos: historial, estado, cliente </strong></li>
+              </ul>
+            </div>
+
+            <!-- Panel de gestión de catálogo -->
+            <div class="container mt-4 panel-c p-3 rounded shadow-sm" style="background-color: #1e2933;">
+              <h4 style="font-weight: 600; color: #f1f1f1;">Gestión de catálogo (simulado)</h4>
+              <p style="font-size: 15px; color: #738594;">Vista simulada del inventario y acciones rápidas sobre
+                productos.</p>
+
+              <div class="row text-center mb-3">
+                <div class="col">
+                  <div class="bg-dark p-2 rounded border">
+                    <strong>126</strong><br><span style="font-size: 13px;">SKUs registrados</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="bg-dark p-2 rounded border">
+                    <strong>23</strong><br><span style="font-size: 13px;">Bajo stock</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="bg-dark p-2 rounded border">
+                    <strong>+8%</strong><br><span style="font-size: 13px;">Rotación</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="bg-dark p-2 rounded border">
+                    <strong>7</strong><br><span style="font-size: 13px;">Alertas</span>
+                  </div>
+                </div>
+              </div>
+
+              <table class="table table-bordered table-hover" style="font-size: 14px;">
+                <thead class="table-dark">
+                  <tr>
+                    <th>SKU</th>
+                    <th>Producto</th>
+                    <th>Stock</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider table-dark">
+                  <tr>
+                    <td>SKU-001</td>
+                    <td>AIRFORCE</td>
+                    <td>12</td>
+                    <td><button class="btn btn-sm btn-outline-primary">Actualizar</button></td>
+                  </tr>
+                  <tr>
+                    <td>SKU-002</td>
+                    <td>AIRTRAVIS</td>
+                    <td>5</td>
+                    <td><button class="btn btn-sm btn-outline-warning">Actualizar</button></td>
+                  </tr>
+                  <tr>
+                    <td>SKU-003</td>
+                    <td>AIRPANDA</td>
+                    <td>0</td>
+                    <td><button class="btn btn-sm btn-danger">Reabastecer</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>

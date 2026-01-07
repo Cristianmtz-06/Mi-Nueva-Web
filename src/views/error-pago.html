@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Error en el Pago! | FORZAZA 🌿</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #198754; /* Verde principal */
+            --color-error: #dc3545; /* Rojo de error */
+            --color-dark: #212529; 
+            --color-light: #f8f9fa;
+        }
+        body {
+            background-color: var(--color-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main { flex-grow: 1; padding-top: 7rem; padding-bottom: 3rem; }
+        
+        /* Estilos de Navbar y Footer (Consistentes) */
+        .navbar { background-color: var(--color-dark); }
+        .navbar-brand { font-weight: 700; color: #fff !important; display: flex; align-items: center; }
+        .navbar-brand i { color: var(--color-primary); margin-right: 5px; }
+        .nav-link { color: #fff !important; margin: 0 10px; font-weight: 500; transition: color 0.3s; }
+        .nav-link:hover { color: var(--color-primary) !important; }
+
+        /* Estilos específicos de error */
+        .error-card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-top: 5px solid var(--color-error); /* Borde rojo */
+        }
+        .error-icon {
+            font-size: 5rem;
+            color: var(--color-error);
+        }
+        .btn-retry { 
+            background-color: var(--color-error); 
+            border-color: var(--color-error); 
+            color: #fff; 
+            font-weight: 600; 
+            padding: 12px 25px; 
+            border-radius: 6px; 
+        }
+        .btn-retry:hover { 
+            background-color: #c82333; 
+            border-color: #bd2130; 
+        }
+        
+        footer { background: var(--color-dark); color: var(--color-light); padding: 20px 0; margin-top: auto; }
+        footer a { color: var(--color-primary); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html"><i class="fas fa-leaf"></i> FORZAZA</a>
+        </div>
+    </nav>
+
+    <!-- Contenido principal: Mensaje de Error -->
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-9">
+                <div class="error-card text-center mt-5">
+                    <i class="fas fa-times-circle error-icon mb-4"></i>
+                    <h1 class="mb-3" style="color: var(--color-error);">¡Error en la Transacción!</h1>
+                    
+                    <!-- Mensaje solicitado por el usuario -->
+                    <p class="lead text-muted">El pago no pudo completarse (simulado).</p>
+                    <p class="fs-5 fw-bold mb-4">Por favor, intenta de nuevo o elige otro método de pago.</p>
+                    
+                    <div class="d-grid gap-2">
+                        <!-- Botón que redirige al usuario de vuelta a la selección de método (metodos.html) -->
+                        <a href="metodos.html" class="btn btn-retry">
+                            <i class="fas fa-redo"></i> Intentar de Nuevo (Volver a Elegir Método)
+                        </a>
+                        <!-- Opción secundaria para soporte -->
+                        <a href="mailto:ventas@forzaza.com" class="btn btn-outline-secondary mt-2">
+                            <i class="fas fa-headset"></i> Contactar Soporte
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>© 2025 <strong>FORZAZA</strong> Todos los derechos reservados</p>
+            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5214491234567" target="_blank">Contáctanos por WhatsApp</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
